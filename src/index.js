@@ -53,6 +53,14 @@ function renderSelectedCatMarkup(cat) {
 }
 
 function renderDescrMarkup(descr) {
+  if (descr.length === 0) {
+    loader.classList.add('hidden');
+    console.log('Response from server have no data!');
+
+    return (info.innerHTML = `<p class="error">
+        Sorry, this page not yet filled. Best people are working on that
+      </p>`);
+  }
   for (const el of descr) {
     const url = el.url;
 
@@ -63,4 +71,3 @@ function renderDescrMarkup(descr) {
   }
   loader.classList.add('hidden');
 }
-renderSelectedCatMarkup();
